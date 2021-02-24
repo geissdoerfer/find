@@ -3,12 +3,12 @@ language: python
 python:
   - "3.6"
 
-install: pip install tox-travis
+install: pip install numpy scipy pytest
 
 before_script:
  - cd $TRAVIS_BUILD_DIR/model
 
-script: tox
+script: pytest
 
 before_deploy:
  - cd $TRAVIS_BUILD_DIR/model
