@@ -1004,7 +1004,7 @@ Covered vias can be set in Masks (Limit).
 <attribute name="NAME" x="6.3033" y="21.0566" size="0.762" layer="25" font="vector" ratio="17" rot="R270" align="bottom-center"/>
 <attribute name="VALUE" x="5.2283" y="22.5806" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="R7" library="flicker-sync" package="RESC1608X55" package3d_urn="urn:adsk.eagle:package:4930386/1" value="1k" x="1.651" y="21.209" smashed="yes">
+<element name="R7" library="flicker-sync" package="RESC1608X55" package3d_urn="urn:adsk.eagle:package:4930386/1" value="300R" x="1.651" y="21.209" smashed="yes">
 <attribute name="NAME" x="1.651" y="19.4605" size="0.762" layer="25" font="vector" ratio="17" align="bottom-center"/>
 <attribute name="VALUE" x="1.651" y="19.7825" size="1.27" layer="27" align="top-center"/>
 </element>

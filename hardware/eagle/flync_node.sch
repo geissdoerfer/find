@@ -3033,7 +3033,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R4" library="flicker-sync" deviceset="R_SMD" device="0402" package3d_urn="urn:adsk.eagle:package:4924763/1" value="33k"/>
 <part name="R5" library="flicker-sync" deviceset="R_SMD" device="0402" package3d_urn="urn:adsk.eagle:package:4924763/1" value="715k"/>
 <part name="R6" library="flicker-sync" deviceset="R_SMD" device="0402" package3d_urn="urn:adsk.eagle:package:4924763/1" value="1.6M"/>
-<part name="R7" library="flicker-sync" deviceset="R_SMD" device="0603" package3d_urn="urn:adsk.eagle:package:4930386/1" value="1k"/>
+<part name="R7" library="flicker-sync" deviceset="R_SMD" device="0603" package3d_urn="urn:adsk.eagle:package:4930386/1" value="300R"/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="H2" library="flicker-sync" deviceset="IXYSKXOB25-05X3F" device=""/>
 <part name="H1" library="flicker-sync" deviceset="IXYSKXOB25-05X3F" device=""/>
