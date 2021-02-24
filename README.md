@@ -1,4 +1,4 @@
-# Fast neighbor discovery in battery-free networks with FIND/FLYNC
+# Fast neighbor discovery and synchronization in battery-free networks with FIND & FLYNC
 
 This repository hosts the model, hardware and firmware complementing our NSDI 2021 paper.
 FIND is the first neighbor discovery protocol for battery-free networks that uses randomized waiting to minimize discovery latency.

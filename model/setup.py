@@ -1,10 +1,18 @@
 from setuptools import setup
 from setuptools import find_namespace_packages
 
+# The directory containing this file
+HERE = pathlib.Path(__file__).parent
+
+# The text of the README file
+README = (HERE / "README.md").read_text()
+
 setup(
     name="neslab-find",
     version="0.0.2",
     description="FIND model",
+    long_description=README,
+    long_description_content_type="text/markdown",
     author="Kai Geissdoerfer",
     author_email="kai.geissdoerfer@tu-dresden.de",
     packages=find_namespace_packages(include=["neslab.*"]),
