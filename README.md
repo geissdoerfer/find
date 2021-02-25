@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/geissdoerfer/find.svg?branch=master)](https://travis-ci.com/geissdoerfer/find)
+
 # Fast neighbor discovery and synchronization in battery-free networks with FIND & FLYNC
 
 This repository hosts the model, hardware and firmware complementing our NSDI 2021 paper.
