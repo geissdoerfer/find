@@ -23,6 +23,17 @@ To get started, you'll need:
 
 ### Flashing
  - Download and install the [nRF-Command-Line-Tools](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download) following the official instructions.
+ - Connect your programmer to your PC
  - Connect your programmer to one of the FLYNC sensor nodes according to the corresponding [README](../hardware/README.md).
  - run `make flash`
+
+### Testing
+
+After flashing the two nodes, you can place them next to each other under the lamp.
+You should see their LEDs flashing simultaneously every now and then.
+Cover the solar panels with your hands to reset the nodes.
+Because they don't have a battery, they lose track of time and state after a few seconds.
+After removing your hands, you should soon see the nodes blinking simultaneously again, indicating another successful rendezvous.
+Take one node to another lamp of the same type close by, i.e. within radio range.
+You should still see each of the nodes blinking occasionally.
 

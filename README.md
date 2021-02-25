@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/geissdoerfer/find.svg?branch=master)](https://travis-ci.com/geissdoerfer/find)
 
-# Fast neighbor discovery and synchronization in battery-free networks with FIND & FLYNC
+# Efficient neighbor discovery and synchronization in battery-free networks with FIND & FLYNC
 
 This repository hosts the model, hardware and firmware complementing our NSDI 2021 paper.
 FIND is the first neighbor discovery protocol for battery-free networks that uses randomized waiting to minimize discovery latency.
@@ -11,7 +11,7 @@ For a detailed description and evaluation results, take a look at [our paper](ht
 
 ## Model
 
-We provide a Python implementation of the model underlying the proposed ND protocol.
+We provide a Python implementation of the model underlying the proposed ND protocol, allowing to reproduce key results of our paper.
 For a detailed description and examples, see the corresponding [README](./model/README.md).
 
 ## Hardware
@@ -21,12 +21,12 @@ The [firmware](./hardware) folder contains the corresponding schematics and layo
 
 ## Firmware
 
-The C code in the [firmware](./firmware) directory runs the FIND protocol together with the FLYNC synchronization mechanism on the sensor node provided in `hardware`.
+The C code in the [firmware](./firmware) directory runs the FIND protocol together with the FLYNC synchronization mechanism on the sensor node provided in [hardware](./hardware).
 
 
 ## People
 
-FIND and FLYNC are developed at the Networked Embedded Systems Lab at TU Dresden as part of the DFG-funded project Next-IoT.
+FIND and FLYNC are being developed at the Networked Embedded Systems Lab at TU Dresden as part of the DFG-funded project Next-IoT.
 
 The following people have contributed to FIND and FLYNC:
 
