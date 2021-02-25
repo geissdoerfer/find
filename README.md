@@ -12,16 +12,16 @@ For a detailed description and evaluation results, take a look at [our paper](ht
 ## Model
 
 We provide a Python implementation of the model underlying the proposed ND protocol, allowing to reproduce key results of our paper.
-For a detailed description and examples, see the corresponding [README](./model/README.md).
+For a detailed description and examples, check out the [`/model`](./model/) directory.
 
 ## Hardware
 
 We've built a tiny, battery-free sensor node to evaluate FIND and FLYNC on real hardware.
-The [firmware](./hardware) folder contains the corresponding schematics and layout files.
+The [`/firmware`](./hardware) directory contains the corresponding schematics and layout files.
 
 ## Firmware
 
-The C code in the [firmware](./firmware) directory runs the FIND protocol together with the FLYNC synchronization mechanism on the sensor node provided in [hardware](./hardware).
+The C code in the [`firmware`](./firmware) directory runs the FIND protocol together with the FLYNC synchronization mechanism on the sensor node provided under [`/hardware`](./hardware).
 
 
 ## People
