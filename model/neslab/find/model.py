@@ -58,17 +58,17 @@ def act2rend(activities: np.ndarray):
     return p_rendz
 
 
-def p_act(shape: float, dist_name: str, t_chr: int, n_slots: int = 100000):
+def p_act(scale: float, dist_name: str, t_chr: int, n_slots: int = 100000):
     """Calculates probability of activity for given distribution and charging time
 
     Args:
-        shape (float): Shape parameter for distribution.
+        scale (float): scale parameter for distribution.
         dist_name (str): Name of probability distribution.
         t_chr (int): charging times (int or iterable).
         n_slots (int): Number of slots.
     """
     dist_class = getattr(dists, dist_name.lower().capitalize())
-    dist = dist_class(shape)
+    dist = dist_class(scale)
     tot_support = t_chr + dist.min_support()
     if n_slots < tot_support:
         raise ValueError("Number of slots must be longer than one wakeup period")
@@ -93,7 +93,7 @@ def p_act(shape: float, dist_name: str, t_chr: int, n_slots: int = 100000):
 class Model(object):
     def __init__(
         self,
-        shape: Union[float, Iterable],
+        scale: Union[float, Iterable],
         dist_name: str,
         t_chr: Union[int, Iterable],
         n_nodes: int = None,
@@ -115,21 +115,21 @@ class Model(object):
         else:
             self.n_jobs = n_jobs
 
-        self._activities = self._calc_activities(shape, dist_name, t_chr, offset)
+        self._activities = self._calc_activities(scale, dist_name, t_chr, offset)
 
     def _calc_activities(
         self,
-        shape: Union[float, Iterable],
+        scale: Union[float, Iterable],
         dist_name: str,
         t_chr: Union[int, Iterable],
         offset: Union[int, Iterable] = None,
     ):
 
         activities = np.empty((self.n_slots, self.n_nodes))
-        if isinstance(t_chr, Iterable) or isinstance(shape, Iterable):
+        if isinstance(t_chr, Iterable) or isinstance(scale, Iterable):
             if offset is None:
                 raise ValueError(
-                    "Can't estimate worst-case offset for different shape/t_chr"
+                    "Can't estimate worst-case offset for different scale/t_chr"
                 )
 
             if isinstance(t_chr, Iterable):
@@ -138,17 +138,17 @@ class Model(object):
             else:
                 t_chr = [t_chr for _ in range(self.n_nodes)]
 
-            if isinstance(shape, Iterable):
-                if len(shape) != self.n_nodes:
+            if isinstance(scale, Iterable):
+                if len(scale) != self.n_nodes:
                     raise ValueError("Number of t_chrs must match number of nodes")
             else:
-                shape = [shape for _ in range(self.n_nodes)]
+                scale = [scale for _ in range(self.n_nodes)]
 
             for i in range(self.n_nodes):
-                activities[:, i] = p_act(shape[i], dist_name, t_chr[i], self.n_slots)
+                activities[:, i] = p_act(scale[i], dist_name, t_chr[i], self.n_slots)
 
         else:
-            activity = p_act(shape, dist_name, t_chr, self.n_slots)
+            activity = p_act(scale, dist_name, t_chr, self.n_slots)
             for i in range(self.n_nodes):
                 activities[:, i] = activity.copy()
 
@@ -168,7 +168,7 @@ class Model(object):
         elif offset is None:
             dist_class = getattr(dists, dist_name.lower().capitalize())
 
-            distance = t_chr + 2 * dist_class(shape).expectation()
+            distance = t_chr + 2 * dist_class(scale).expectation()
             offset = np.zeros((self.n_nodes,), dtype=int)
             for i in range(self.n_nodes):
                 offset[i] = int(np.round(i * (distance / self.n_nodes)))
