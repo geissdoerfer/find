@@ -62,3 +62,34 @@ Calculate the discovery latency:
 lat = m.disco_lat())
 print(f"Discovery latency: {lat} slots")
 ```
+
+## Reproduce key results
+
+We used the code provided in this directory to gain the insights presented in section 2 of [our paper](https://nes-lab.org/pubs/2021-Geissdoerfer-Find.pdf).
+We invite you to reproduce our results with the scripts provided in the [examples directory](./examples).
+Although we've reduced the number of sample points, number of nodes and charging times for the provided examples, expect the examples to utilize most of your computer's resource and run for multiple minutes.
+If you are interested in reproducing the full results across a larger range and have access to an HPC facility, get in touch with us.
+
+To plot the probability of activity of two nodes with a charging time of 60 slots, using a uniform delay distribution (Figures 3 and 4 in the paper), call
+
+```
+python examples/plot_example.py
+```
+
+To compare the discovery latency of two nodes when using different distributions across a range of their scale parameters (Figure 5 in the paper), run
+
+```
+python examples/compare_dists.py
+```
+
+To plot the discovery latency of a clique of nodes over the node density (Figure 6 in the paper), run
+
+```
+python examples/plot_density.py
+```
+
+Finally, to optimize the scale parameter of the geometric distribution to a range of charging times, run
+
+```
+python examples/optimize_scale.py
+```
