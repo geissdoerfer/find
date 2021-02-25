@@ -11,8 +11,7 @@ Key specifications:
   - 1MB flash, 256kB S-RAM
  - 47uF Capacitor in 0805 package
 
-![alt text](proto_front.jpg "Connector and Cable pinout")
-
+<img src="proto_front.png" width="720">
 
 ## Pinout
 
@@ -29,4 +28,4 @@ Use a [Tag-Connect TC2030-IDC-NL cable](https://www.tag-connect.com/product/tc20
 | 6          | GND      | Ground                                 |
 
 
-![alt text](connector.png "Connector and Cable pinout")
+<img src="connector.png" width="480">
