@@ -1,5 +1,6 @@
 from setuptools import setup
 from setuptools import find_namespace_packages
+import pathlib
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
