@@ -1,26 +1,24 @@
 # FIND model
 
-This directory provides a Python implementation of the FIND model and protocol.
-
-The provided code allows to calculate the probability for each node in a clique to become active in any slot, the probability for any individual link to be discovered in any slot as well as the network discovery latency.
+This directory contains a Python implementation of the analytical Find model presented in Section 2 of our NSDI 2021 paper. As illustrated below, the model allows to compute the network discovery latency as a function of several key parameters (e.g., delay distribution, charging times of the nodes). It is also possible to obtain more detailed insights by computing the probability for a node to become active in a slot and the probability for a link to be discovered in a slot.
 
 ## Installation
 
-Depending on your setup, install the python package together with the requirements for the examples using
-
-```
-pipenv install neslab.find[examples]
-```
-
-or
+Install the python package together with the requirements for the examples using either
 
 ```
 pip install neslab.find[examples]
 ```
 
+or
+
+```
+pipenv install neslab.find[examples]
+```
+
 ## Usage
 
-Instantiate the model with a uniform distribution with scale 10 and three nodes with charging times of 100, 125 and 200 that become active for the first time without an offset:
+Instantiate the model with a uniform distribution with scale 10 and three nodes with charging times of 100, 125 and 200 slots that become active for the first time without an offset:
 
 ```python
 import matplotlib.pyplot as plt
