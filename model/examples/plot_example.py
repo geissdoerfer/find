@@ -7,8 +7,9 @@ from neslab.find import Model
 prop_cycle = plt.rcParams["axes.prop_cycle"]
 colors = prop_cycle.by_key()["color"]
 
+# Charging time of 25 slots
 t_chr = 100
-distribution = "Uniform"
+# Plot for scales 30 and 60
 scales = [30, 60]
 
 cdfs = list()
