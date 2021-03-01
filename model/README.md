@@ -1,6 +1,8 @@
 # FIND model
 
-This directory contains a Python implementation of the analytical Find model presented in Section 2 of our NSDI 2021 paper. As illustrated below, the model allows to compute the network discovery latency as a function of several key parameters (e.g., delay distribution, charging times of the nodes). It is also possible to obtain more detailed insights by computing the probability for a node to become active in a slot and the probability for a link to be discovered in a slot.
+This directory contains a Python implementation of the analytical FIND model presented in Section 2 of our NSDI 2021 paper.
+As illustrated below, the model allows to compute the network discovery latency as a function of several key parameters (e.g., delay distribution, charging times of the nodes).
+It is also possible to obtain more detailed insights by computing the probability for a node to become active in a slot and the probability for a link to be discovered in a slot.
 
 ## Installation
 

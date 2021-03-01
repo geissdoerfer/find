@@ -2,9 +2,11 @@
 
 # Efficient neighbor discovery and synchronization in battery-free wireless networks with FIND and FLYNC
 
-This repository hosts the artifacts accompanying our NSDI 2021 paper, which introduces FIND and FLYNC. FIND is the first neighbor discovery protocol for battery-free networks; it uses randomized waiting to minimize discovery latency in the face of intermittency. FLYNC synchronizes indoor light harvesting devices to the powerline-induced brightness variations of state-of-the-art lamps; it further speeds up discovery when used in tandem with FIND.
+This repository hosts the artifacts accompanying our NSDI 2021 paper, which introduces FIND and FLYNC.
+FIND is the first neighbor discovery protocol for battery-free networks; it uses randomized waiting to minimize discovery latency in the face of intermittency.
+FLYNC synchronizes indoor light harvesting devices to the powerline-induced brightness variations of state-of-the-art lamps; it further speeds up discovery when used in tandem with FIND.
 
-In addition to the model underlying FIND's optimized waiting time distribution, we provide the hardware design of the prototype battery-free node and the source code of the firmware we used to evaluate Find and FLYNC.
+In addition to the Python implementation of the analytical FIND model, we provide the hardware design of the prototype battery-free node and the source code of the firmware we used to evaluate FIND and FLYNC.
 
 To get an overview, visit [our website](https://find.nes-lab.org).
 For a detailed description and evaluation results, take a look at [our paper](https://nes-lab.org/pubs/2021-Geissdoerfer-Find.pdf).
@@ -28,7 +30,7 @@ The C code in the [`/firmware`](./firmware) directory implements the FIND protoc
 
 FIND and FLYNC are being developed at the Networked Embedded Systems Lab at TU Dresden.
 
-The main contributors of FIND and FLYNC are:
+The main contributors are:
 
  - [Kai Geissdoerfer](https://scholar.google.com/citations?user=k8YZfQEAAAAJ)
  - [Marco Zimmerling](https://wwwpub.zih.tu-dresden.de/~mzimmerl/)
