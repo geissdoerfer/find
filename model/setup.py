@@ -19,7 +19,7 @@ setup(
     packages=find_namespace_packages(include=["neslab.*"]),
     license="MIT",
     install_requires=["numpy", "scipy"],
-    setup_requires=["pytest-runner"],
-    tests_require=["pytest>=3.9"],
+    tests_require=["pytest"],
+    extras_require={"examples": ["matplotlib"]},
     url="https://find.nes-lab.org",
 )
