@@ -20,7 +20,7 @@ pipenv install neslab.find[examples]
 
 ## Usage
 
-Instantiate the model with a uniform distribution with scale 10 and three nodes with charging times of 100, 125 and 200 slots that become active for the first time without an offset:
+Instantiate the model with a uniform distribution with scale parameter 10 and three nodes with charging times of 100, 125 and 200 slots that become active for the first time without an offset:
 
 ```python
 import matplotlib.pyplot as plt
@@ -91,6 +91,6 @@ python examples/optimize_scale.py
 
 ## Reproduce key results
 
-We used the code provided in this directory to gain the insights presented in section 2 of [our paper](https://nes-lab.org/pubs/2021-Geissdoerfer-Find.pdf).
+We used the code provided in this directory to gain the insights presented in Section 2 of [our NSDI 2021 paper](https://nes-lab.org/pubs/2021-Geissdoerfer-Find.pdf).
 We invite you to reproduce our results with the scripts provided in the [reproducibility](./reproducibility) directory.
-Some of the calculations take significant computing resources and require a high performance computing system with a large number of CPUs.
+Some of the calculations take significant computing resources and require a high performance computing system with a large number of CPUs to complete in a reasonable amount of time.
