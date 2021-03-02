@@ -56,7 +56,7 @@ plt.show()
 Compute the discovery latency:
 
 ```python
-lat = m.disco_latency())
+lat = m.disco_latency()
 print(f"Discovery latency: {lat} slots")
 ```
 
