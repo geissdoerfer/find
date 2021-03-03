@@ -93,4 +93,56 @@ python examples/optimize_scale.py
 
 We used the code provided in this directory to gain the insights presented in Section 2 of [our NSDI 2021 paper](https://nes-lab.org/pubs/2021-Geissdoerfer-Find.pdf).
 We invite you to reproduce our results with the scripts provided in the [reproducibility](./reproducibility) directory.
-Some of the calculations take significant computing resources and require a high performance computing system with a large number of CPUs to complete in a reasonable amount of time.
+Figures 3 and 4 can be reproduced with the script `examples/plot_example.py`.
+The calculations for Figures 5 and 6, and for the lookup table for the online implementation take significant computing resources and require a high performance computing system with a large number of CPUs to complete in a reasonable amount of time.
+We use [ray](https://ray.io/) to run the calculations on a distributed memory computing cluster.
+
+### Setup your cluster
+
+Install `ray` and `neslab.find` on all nodes in your cluster. The exact installation procedure depends on the specific cluster setup and your access rights. If in doubt, contact the cluster provider.
+
+First, setup the `head` node responsible for managing the workload across the cluster by starting the head process with:
+
+```
+ray start --block --head --redis-password=yourpassword
+```
+
+Next, start a worker process on each other node in your cluster, providing the IP address of your head node as  `address`:
+
+```
+ray start --block --address=[IP of head node] --redis-password=yourpassword
+```
+
+### Comparing distributions
+
+To reproduce the results shown in Figure 5 in our paper, you can compute the neighbor discovery performance of different distributions for a higher number of sampling points than with the example from `examples/compare_dists` according to the following instructions.
+
+Login to any of the nodes in the cluster, clone the repository and run
+
+```
+python reproducibility/compute_dists.py -a [IP of head node] -p yourpassword -o results_dists.csv
+```
+
+Copy the `results_dists.csv` to your local machine and generate the plot with
+
+```
+python reproducibility/plot_dists.py -i results_dists.csv
+```
+
+### Fit the scale parameter for various scenarios
+
+To reproduce the results shown in Figure 6 in our paper, and to generate the lookup table for the online implementation, first fit the optimized scale parameter of the geometric distribution for different combinations of charging time and n umber of nodes with
+
+```
+python reproducibility/fit_scale.py -a [IP of head node] -p yourpassword -o results_scale.csv
+```
+
+This will store the results in a csv file under `results_scale.csv`.
+
+### Discovery latency versus network density
+
+To reproduce Figure 6 in our paper, copy the `results_scale.csv` to your local machine and generate the plot with
+
+```
+python reproducibility/plot_density.py -i results_scale.csv
+```

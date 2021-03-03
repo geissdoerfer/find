@@ -20,6 +20,6 @@ setup(
     license="MIT",
     install_requires=["numpy", "scipy"],
     tests_require=["pytest"],
-    extras_require={"examples": ["matplotlib"]},
+    extras_require={"examples": ["matplotlib", "ray", "click"]},
     url="https://find.nes-lab.org",
 )
