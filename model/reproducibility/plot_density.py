@@ -17,13 +17,14 @@ from neslab.find import distributions
 )
 def cli(input_file):
     df = pd.read_csv(input_file)
-    for dist_name in df["dist_name"].unique():
-        df_dist = df[df["dist_name"] == dist_name]
-        df_dist = df_dist.sort_values("dist_scale")
-        plt.plot(np.arange(len(df_dist)), df_dist["disco_latency"], label=dist_name)
+    t_chr = df["t_chr"].iat[0]
 
-    plt.xticks([])
-    plt.xlabel("Scale")
+    for tag in df["tag"].unique():
+        df_slice = df[df["tag"] == tag]
+        df_slice = df_slice.sort_values("n_nodes")
+        plt.plot(df_slice["n_nodes"] / t_chr, df_slice["disco_latency"], label=tag)
+
+    plt.xlabel("Network density")
     plt.ylabel("Discovery Latency [slots]")
     plt.legend()
     plt.show()

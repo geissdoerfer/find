@@ -131,7 +131,7 @@ python reproducibility/plot_dists.py -i results_dists.csv
 
 ### Fit the scale parameter for various scenarios
 
-To reproduce the results shown in Figure 6 in our paper, and to generate the lookup table for the online implementation, first fit the optimized scale parameter of the geometric distribution for different combinations of charging time and n umber of nodes with
+As a basis for reproducing the results shown in Figure 6 in our paper, and to generate the lookup table for the online implementation, first fit the scale parameter of the geometric distribution for different combinations of charging time and number of nodes with
 
 ```
 python reproducibility/fit_scale.py -a [IP of head node] -p yourpassword -o results_scale.csv
@@ -141,8 +141,14 @@ This will store the results in a csv file under `results_scale.csv`.
 
 ### Discovery latency versus network density
 
-To reproduce Figure 6 in our paper, copy the `results_scale.csv` to your local machine and generate the plot with
+To reproduce Figure 6 in our paper, use the results from the previous step to compute ND performance for different strategies and increasing network densities by running (on the cluster)
 
 ```
-python reproducibility/plot_density.py -i results_scale.csv
+python reproducibility/compute_density.py -a [IP of head node] -p yourpassword -i results_scale.csv -o results_density.csv
+```
+
+Copy the `results_density.csv` to your local machine and generate the plot with
+
+```
+python reproducibility/plot_density.py -i results_density.csv
 ```
