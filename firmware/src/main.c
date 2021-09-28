@@ -20,7 +20,7 @@
 /* Minimum voltage for becoming active */
 #define V_THR_ON 3.3
 /* Power off threshold */
-#define V_THR_OFF NRF_POWER_POFTHR_V28
+#define V_THR_OFF NRF_POWER_POFTHR_V27
 
 /* Maximum voltage before converter goes into overvoltage protection mode */
 #define V_THR_MAX 3.5
@@ -125,5 +125,7 @@ int main(void) {
   /* 5 seconds watch dog */
   wdt_init(5);
 
-  thread_loop();
+  /* From now on, we will run in RAM */
+  volatile uint32_t ramfunc = (uint32_t)thread_loop;
+  asm("ldr pc, [%[addr], #0]\t\n" : : [addr] "r"(&ramfunc));
 }
