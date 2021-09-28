@@ -46,7 +46,7 @@ lookup_scale(unsigned int t_chr) {
 
 __attribute__((long_call, section(".ramfunctions"))) unsigned int
 geometric_itf_sample(float p) {
-  float y = (float)prng_urand(0, 4096) / 4069;
-  unsigned int res = (unsigned int)(log(1 - y) / log(1 - p) - 1.0f);
+  float y = (float)prng_urand(0, 4096) / 4096;
+  unsigned int res = (unsigned int)(logf(1 - y) / logf(1 - p) - 1.0f);
   return res;
 }
